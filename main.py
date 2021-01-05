@@ -1,11 +1,13 @@
 import sys
 from PySide6 import QtCore, QtGui, QtWidgets
+from handbook import Handbook
 
 class MainWindow(QtWidgets.QWidget):
     def __init__(self):
         super().__init__()
 
-        self.label1 = QtWidgets.QLabel("Tab 1")
+        self.setWindowTitle("Measure device from LAMMI")
+
         self.label2 = QtWidgets.QLabel("Tab 2")
         self.label3 = QtWidgets.QLabel("Tab 3")
 
@@ -13,7 +15,12 @@ class MainWindow(QtWidgets.QWidget):
         self.setLayout(self.layout)
 
         self.tabWigdet = QtWidgets.QTabWidget()
-        self.tabWigdet.addTab(self.label1, "APP Handbook")
+
+        # Constructing the Handbook tab
+        handbook_constructor = Handbook(self.tabWigdet)
+        handbook_constructor.construction()
+
+        # Other Stuff
         self.tabWigdet.addTab(self.label2, "Measures")
         self.tabWigdet.addTab(self.label3, "Settings")
 
