@@ -58,13 +58,15 @@ class HandBookLayoutConstructor(QtWidgets.QWidget):
         self.button_about = QtWidgets.QPushButton("About")
         self.button_about.clicked.connect(self.about_button_method)
         
-        
-        self.grid.addWidget(self.initial_label, 0, 0)
-        self.grid.addWidget(self.button_classical_em, 0, 1)
-        self.grid.addWidget(self.button_measure_device, 1, 1)
-        self.grid.addWidget(self.button_about, 2, 1)
+        # Setting the position of the buttons in the grid layout
+        # and the spam
+        self.grid.addWidget(self.initial_label, 1, 0, 1, 3)
+        self.grid.addWidget(self.button_classical_em, 0, 0)
+        self.grid.addWidget(self.button_measure_device, 0, 1)
+        self.grid.addWidget(self.button_about, 0, 2)
     
     @QtCore.Slot()
+    # methods to change the label in the handbook tab
     def classical_em_button_method(self):
         return self.initial_label.setText(self.available_labels[1])
 
