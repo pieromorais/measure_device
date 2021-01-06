@@ -1,6 +1,7 @@
 import sys
 from PySide6 import QtCore, QtGui, QtWidgets
 from handbook import Handbook
+from measument_device_app import MeasureDevice
 
 class MainWindow(QtWidgets.QWidget):
     def __init__(self):
@@ -17,11 +18,18 @@ class MainWindow(QtWidgets.QWidget):
         self.tabWigdet = QtWidgets.QTabWidget()
 
         # Constructing the Handbook tab
+        # The set up of the file can be found in
+        # handbook.py file
         handbook_constructor = Handbook(self.tabWigdet)
         handbook_constructor.construction()
 
+        # Constructing the measure tab
+        # The set up of the file can be found in
+        # measument_device_app file
+        measure_constructor = MeasureDevice(self.tabWigdet)
+        measure_constructor.construction()
+
         # Other Stuff
-        self.tabWigdet.addTab(self.label2, "Measures")
         self.tabWigdet.addTab(self.label3, "Settings")
 
         self.layout.addWidget(self.tabWigdet)
