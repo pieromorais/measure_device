@@ -2,6 +2,7 @@ import sys
 from PySide6 import QtCore, QtGui, QtWidgets
 from handbook import Handbook
 from measument_device_app import MeasureDevice
+from settings import SettingsTab
 
 class MainWindow(QtWidgets.QWidget):
     def __init__(self):
@@ -30,7 +31,8 @@ class MainWindow(QtWidgets.QWidget):
         measure_constructor.construction()
 
         # Other Stuff
-        self.tabWigdet.addTab(self.label3, "Settings")
+        settings = SettingsTab(self.tabWigdet)
+        settings.construction()
 
         self.layout.addWidget(self.tabWigdet)
 
